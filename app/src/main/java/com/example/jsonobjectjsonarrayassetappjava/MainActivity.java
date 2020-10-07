@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(customAdapter);
     }
 
+    //create assets folder -> navigate to Packages -> New ->
+    // Folder -> Assets Folder -> finish
     private String loadJSONFromAsset() {
 
         String json = null;
