@@ -16,7 +16,7 @@ import java.util.ArrayList;
 class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.UserViewHolder> {
 
     private ArrayList<String> name;
-    private ArrayList<String> emal;
+    private ArrayList<String> email;
     private ArrayList<String> gender;
     private ArrayList<String> id;
     private ArrayList<String> mobile;
@@ -26,17 +26,18 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.UserViewHolder> {
             Context context,
             ArrayList<String> id,
             ArrayList<String> name,
-            ArrayList<String> emal,
+            ArrayList<String> email,
             ArrayList<String> gender,
             ArrayList<String> mobile) {
         this.name = name;
-        this.emal = emal;
+        this.email = email;
         this.gender = gender;
         this.id = id;
         this.mobile = mobile;
         this.context = context;
     }
 
+    //initializes the ViewHolder with a view.
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -51,11 +52,12 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.UserViewHolder> {
         return new UserViewHolder(view);
     }
 
+    //binds data to the view components in the ViewHolder
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, final int position) {
 
         holder.tvName.setText(name.get(position));
-        holder.tvEmail.setText(emal.get(position));
+        holder.tvEmail.setText(email.get(position));
         holder.tvGender.setText(gender.get(position));
         holder.tvMobile.setText(mobile.get(position));
         holder.tvUserId.setText(id.get(position));
@@ -74,6 +76,7 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.UserViewHolder> {
         return name.size();
     }
 
+    //holds each data in a row of the list
     class UserViewHolder extends ViewHolder{
 
         TextView tvName, tvEmail, tvMobile, tvGender, tvUserId;

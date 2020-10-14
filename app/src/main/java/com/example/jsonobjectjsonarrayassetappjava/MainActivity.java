@@ -83,17 +83,19 @@ public class MainActivity extends AppCompatActivity {
     // Folder -> Assets Folder -> finish
     private String loadJSONFromAsset() {
 
-        String json = null;
+        //Read the file and translate it into a string format
+        String json;
         try {
 
             InputStream is = getAssets().open("users_list.json");
             int size = is.available(); //returns the number of bytes to read in the file
-            byte[] buffer = new byte[size]; //create an array called buffer of length (size)
+            byte[] buffer = new byte[size]; //create an array of bytes called buffer of length (size)
             is.read(buffer); // read and put the data in the array one character at a time.
             is.close();
 
             //This constructor decodes the byte array depending on the character set
             // mentioned in the string (e.g. utf-8).
+            //A byte is combination of bits used in computer coding to represent a letter in an alphabet.
             //The byte values are actually the ASCII values provided. The string is created by
             // converting them to their respective character values and then encoding the string.
             json = new String(buffer, "UTF-8");
